@@ -24,7 +24,7 @@
             <tr>
                  <td><?= $taskkey ?> </td>
                  <td><?= $task['title']?></td>
-                 <td><?= $task['completed'];?></td>
+                 <td><?php if($task['completed'] == true){echo "Выполнено";}else{echo "Не выполнено";}?></td>
                  <td>
              	<form method="post" action="completeTask.php">
                      <input type="hidden" name="task_key" VALUE="<?= $taskkey?>">
@@ -32,12 +32,9 @@
     			</form>
                  </td>
             </tr>
-            <?=var_dump($task[$taskkey]['completed']);?>
-        <?php endforeach?>
-        <?php
+        <?php endforeach;
         }
         ?>
-
     	</table>
         
 </body>
