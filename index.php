@@ -17,7 +17,9 @@
             <th>Выполнена</th>
             <th>Отправить</th>
         </tr>
-
+        <?php if(!empty($_COOKIE))
+        {
+        ?>
         <?php foreach($tasks as $taskkey => $task):?>
             <tr>
                  <td><?= $taskkey ?> </td>
@@ -30,7 +32,12 @@
     			</form>
                  </td>
             </tr>
+            <?=var_dump($task[$taskkey]['completed']);?>
         <?php endforeach?>
+        <?php
+        }
+        ?>
+
     	</table>
         
 </body>

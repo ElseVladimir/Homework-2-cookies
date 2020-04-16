@@ -5,11 +5,11 @@
 		{
 			$tasks = json_decode($_COOKIE['tasks'], true);
 		}
-				$tasks[0]['completed']= true;
+				 $taskey = $_POST['task_key'];
+				$tasks[$taskey]['completed']= true;
 
 				setcookie('tasks', json_encode($tasks), time()+3600*24);
-				var_dump($tasks);
-				var_dump($taskkey);
+				header('Location: index.php');
 				die();
 	}
 
