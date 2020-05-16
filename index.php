@@ -7,7 +7,7 @@
 <body>
 	<?php $tasks = json_decode($_COOKIE['tasks'],true);?>
 	<form method="post" action="addTask.php">
-			<input type="textarea" name="add" placeholder="Введите задачу" required><br>
+			<input type="textarea" name="add" placeholder="Введите задачу" ><br>
 			<input type="submit" name="submit" value="Ввести"><br>
 	</form>
 		<table>
@@ -17,7 +17,7 @@
             <th>Выполнена</th>
             <th>Отправить</th>
         </tr>
-        <?php if(!empty($_COOKIE))
+        <?php if(!empty($_COOKIE['tasks']))
         {
         ?>
         <?php foreach($tasks as $taskkey => $task):?>
@@ -27,7 +27,7 @@
                  <td><?php if($task['completed'] == true){echo "Выполнено";}else{echo "Не выполнено";}?></td>
                  <td>
              	<form method="post" action="completeTask.php">
-                     <input type="hidden" name="task_key" VALUE="<?= $taskkey?>">
+                     <input type="hidden" name="task_key" VALUE="<?=$taskkey;?>">
                      <button>Add</button>
     			</form>
                  </td>
